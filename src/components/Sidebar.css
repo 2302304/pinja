@@ -16,8 +16,27 @@
   }
   
   .sidebar ul li a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .sidebar ul li a .icon {
+    margin-right: 0.5rem;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #646cff;
+    color: #fff;
+  }
+  
+  .sidebar ul li a.active {
+    background-color: #535bf2;
+    color: #fff;
   }
   
