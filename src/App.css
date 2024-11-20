@@ -1,0 +1,12 @@
+/* Appin päätyylit */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sisältöalue */
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+}

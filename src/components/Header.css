@@ -1,0 +1,11 @@
+/* Headerin perusasetukset */
+.header {
+    width: 100%;
+    background-color: #f4f4f4;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
