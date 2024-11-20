@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "education": "Bachelor of Computer Science, 2015",
+      "certificates": ["Certified React Developer", "Full-Stack Development"],
+      "projects": ["E-commerce Platform", "Portfolio Website"],
+      "technology": "React",
+      "experience": "5 vuotta",
+      "details": "Johnilla on yli viiden vuoden kokemus moderneista web-teknologioista, erityisesti Reactista."
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "education": "Master of Data Science, 2018",
+      "certificates": ["Advanced Python Programming", "Data Analysis Specialist"],
+      "projects": ["Financial Data Analysis", "Machine Learning Models"],
+      "technology": "Python",
+      "experience": "3 vuotta",
+      "details": "Jane on asiantuntija datan analysoinnissa ja visualisoinnissa käyttäen Python-kirjastoja kuten Pandas ja Matplotlib."
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "education": "Bachelor of Design, 2020",
+      "certificates": ["Certified UX Designer", "Figma Masterclass"],
+      "projects": ["Mobile App Design", "Website Redesign"],
+      "technology": "Figma",
+      "experience": "2 vuotta",
+      "details": "Alice on taitava käyttöliittymäsuunnittelussa ja käyttäjäkokemuksen optimoinnissa."
+    },
+    {
+      "id": 4,
+      "name": "Mike Brown",
+      "education": "Bachelor of IT, 2013",
+      "certificates": ["AWS Certified Solutions Architect", "DevOps Fundamentals"],
+      "projects": ["Cloud Infrastructure Setup", "CI/CD Pipeline Implementation"],
+      "technology": "AWS",
+      "experience": "6 vuotta",
+      "details": "Mike hallitsee AWS-palvelut ja DevOps-prosessit, kuten CI/CD-putket ja infrastruktuurin hallinta koodilla."
+    }
+  ]
+  

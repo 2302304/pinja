@@ -8,25 +8,45 @@
     margin-bottom: 1rem;
   }
   
-  /* Hakutoiminnot ja lisää-painike */
+  /* Controls: Hakutoiminnot ja Lisää konsultti -nappi */
   .controls {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1rem; /* Väli elementtien välillä */
     margin-bottom: 1.5rem;
-    justify-content: left; 
+    justify-content: flex-start; /* Kohdistaa elementit vasemmalle */
   }
   
-  .controls input,
-  .controls select {
-    width: 300px;
+  /* Alasvetovalikko "Konsultit" */
+  .consultants-dropdown {
+    width: 150px; /* Alasvetovalikon leveys */
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
   }
   
+  /* Hakukenttä */
+  .controls input {
+    width: 250px; /* Hakukentän leveys */
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Teknologiasuodatin */
+  .controls select {
+    width: 200px; /* Teknologiasuodattimen leveys */
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Lisää konsultti -nappi */
   .add-button {
+    margin-left: auto; /* Siirtää painikkeen oikeaan reunaan */
     background-color: #646cff;
     color: white;
     border: none;
@@ -79,16 +99,15 @@
     background-color: #535bf2;
   }
   
-  /* Mobiilinäkymä: yksi kortti per rivi */
+  /* Mobiilinäkymä */
   @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      gap: 0.5rem; /* Väli elementtien välillä mobiilissa */
+    }
+  
     .consultants-grid {
       grid-template-columns: 1fr;
     }
-  
-    .controls {
-      flex-direction: column; 
-      gap: 0.5rem;
-    }
   }
-  
   
