@@ -19,6 +19,7 @@
   
   .controls input,
   .controls select {
+    width: 300px;
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ddd;
@@ -42,7 +43,7 @@
   /* Korttinäkymä */
   .consultants-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr); /* Kaksi korttia vierekkäin */
     gap: 1rem;
   }
   
@@ -89,4 +90,5 @@
       gap: 0.5rem;
     }
   }
+  
   

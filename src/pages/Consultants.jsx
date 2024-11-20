@@ -11,13 +11,14 @@ const Consultants = () => {
     { id: 4, name: 'Mike Brown', expertise: 'DevOps', technology: 'AWS', year: '6 vuotta' },
   ];
 
-  // Suodata hakukentän ja teknologiafiltterin perusteella
-  const filteredConsultants = consultants.filter(
-    (consultant) =>
-      (consultant.name.toLowerCase().includes(search.toLowerCase()) ||
-        consultant.expertise.toLowerCase().includes(search.toLowerCase())) &&
-      (technologyFilter === 'Kaikki' || consultant.technology === technologyFilter)
-  );
+  // Filtteröinti: ensimmäinen kirjain ja teknologia
+  const filteredConsultants = consultants.filter((consultant) => {
+    const fullName = consultant.name.toLowerCase(); // Nimi pienillä kirjaimilla
+    const searchLetter = search.toLowerCase(); // Hakukentän arvo
+    const matchesName = fullName.startsWith(searchLetter) || fullName.split(' ')[1]?.startsWith(searchLetter);
+    const matchesTechnology = technologyFilter === 'Kaikki' || consultant.technology === technologyFilter;
+    return matchesName && matchesTechnology;
+  });
 
   return (
     <div className="consultants-page">
@@ -25,12 +26,12 @@ const Consultants = () => {
       <div className="controls">
         <input
           type="text"
-          placeholder="Hae nimellä tai osaamisella..."
+          placeholder="Hae etu tai sukunimellä..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
         <select value={technologyFilter} onChange={(e) => setTechnologyFilter(e.target.value)}>
-          <option value="Kaikki">Kaikki</option>
+          <option value="Kaikki">Teknologia</option>
           <option value="React">React</option>
           <option value="Python">Python</option>
           <option value="Figma">Figma</option>
