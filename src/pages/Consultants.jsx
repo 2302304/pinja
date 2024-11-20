@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './Consultants.css';
 import consultants from '../data/consultantsData';
 
-
 const Consultants = () => {
   const [search, setSearch] = useState('');
   const [technologyFilter, setTechnologyFilter] = useState('Kaikki');
   const [showAll, setShowAll] = useState(false);
+  const [expandedConsultant, setExpandedConsultant] = useState(null); // Lisätty tila tietojen laajennukselle
 
   // Suodatus hakukentän ja teknologiafiltterin perusteella
   const filteredConsultants = consultants.filter((consultant) => {
@@ -18,6 +18,10 @@ const Consultants = () => {
   });
 
   const consultantsToDisplay = showAll ? consultants : filteredConsultants;
+
+  const handleViewMore = (id) => {
+    setExpandedConsultant(expandedConsultant === id ? null : id); // Näytä/piilota laajennetut tiedot
+  };
 
   return (
     <div className="consultants-page">
@@ -62,7 +66,22 @@ const Consultants = () => {
               <p><strong>Osaaminen:</strong> {consultant.expertise}</p>
               <p><strong>Teknologia:</strong> {consultant.technology}</p>
               <p><strong>Kokemus:</strong> {consultant.year}</p>
-              <button className="view-button">Näytä lisää</button>
+              <button
+                className="view-button"
+                onClick={() => handleViewMore(consultant.id)}
+              >
+                {expandedConsultant === consultant.id ? 'Näytä vähemmän' : 'Näytä lisää'}
+              </button>
+              {expandedConsultant === consultant.id && (
+             <div className="expanded-details">
+             <p><strong>Koulutusaste:</strong> {consultant.education.degree}</p>
+             <p><strong>Koulutusohjelma:</strong> {consultant.education.program}</p>
+             <p><strong>Valmistumisvuosi:</strong> {consultant.education.graduationYear}</p>
+             <p><strong>Projektit:</strong> {consultant.projects.join(', ')}</p>
+             <p><strong>Sertifikaatit:</strong> {consultant.certifications.join(', ')}</p>
+             <p><strong>Työkokemus:</strong> {consultant.workExperience}</p>
+           </div>
+            )}
             </div>
           ))}
         </div>
