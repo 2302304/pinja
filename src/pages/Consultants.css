@@ -1,174 +1,173 @@
 /* Sivun yleiset tyylit */
 .consultants-page {
-    padding: 1rem;
-  }
-  
-  h2 {
-    text-align: left;
-    margin-bottom: 1rem;
-  }
-  
-  /* Controls: Hakutoiminnot ja Lisää konsultti -nappi */
-  .controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Väli elementtien välillä */
-    margin-bottom: 1.5rem;
-    justify-content: flex-start; /* Kohdistaa elementit vasemmalle */
-  }
-  
-  /* Alasvetovalikko "Konsultit" */
-  .consultants-dropdown {
-    width: 150px; 
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  /* Hakukenttä */
-  .controls input {
-    width: 250px; 
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  /* Teknologiasuodatin */
-  .controls select {
-    width: 200px; 
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  /* Lisää konsultti -nappi */
-  .add-button {
-    margin-left: auto; 
-    background-color: #646cff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background-color: #535bf2;
-  }
-  
-  /* Korttinäkymä */
-  .consultants-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Kolme korttia vierekkäin */
-    gap: 1rem; /* Väli korttien välillä */
-  }
-  
-  
-  
-  /* Konsulttikortit */
-  .consultant-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd; /* Kortin yhteinen reunus */
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: left;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Kortin varjostus */
-  }
-  
-  .consultant-card h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-  }
-  
-  .consultant-card p {
-    margin: 0.5rem 0;
-  }
-  /* Konsultin ikoni */
-.consultant-icon {
-  margin-right: 0.5rem; /* Väli ikonin ja nimen välillä */
-  color: #646cff; /* Sama väri kuin painikkeessa */
+  padding: 1rem;
 }
 
-  
-  
-  
- /* Laajennetut tiedot kortissa */
-.expanded-details {
-  
-  background-color: inherit; /* Sama taustaväri kuin kortilla */
-  padding: 0rem;
-  font-size: 1rem; 
-  color: #333; 
- 
+h2 {
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
-.expanded-details p {
-  margin: 0.5rem 0; 
-  font-size: 1.0rem; 
-  line-height: 1.5; 
+/* Controls: Hakutoiminnot ja Lisää konsultti -nappi */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Väli elementtien välillä */
+  margin-bottom: 1.5rem;
+  justify-content: flex-start; /* Kohdistaa elementit vasemmalle */
 }
 
-/* Näytä lisää -painike */
-.view-button {
+/* Alasvetovalikko "Konsultit" */
+.consultants-dropdown {
+  width: 150px; 
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Hakukenttä */
+.controls input {
+  width: 250px; 
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Teknologiasuodatin */
+.controls select {
+  width: 200px; 
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Lisää konsultti -nappi */
+.add-button {
+  margin-left: auto; 
   background-color: #646cff;
   color: white;
   border: none;
   border-radius: 4px;
   padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
-  margin-top: 0.8rem;
-  margin-bottom: 0.8rem;
 }
 
-.view-button:hover {
+.add-button:hover {
   background-color: #535bf2;
 }
 
- /* Ei konsultteja -viesti */
- .no-consultants-message {
-  text-align: center;
-  font-size: 1rem;
-  color: #555;
-  margin-top: 2rem;
+/* Korttinäkymä */
+.consultants-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Kolme korttia vierekkäin */
+  gap: 1rem; /* Väli korttien välillä */
 }
-  
-  /* Responsiivinen laajennettujen tietojen tyyli */
-  @media (max-width: 768px) {
-    .expanded-details {
-      padding: 0.8rem;
-      font-size: 0.9rem; 
-    }
+
+
+
+/* Konsulttikortit */
+.consultant-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd; /* Kortin yhteinen reunus */
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Kortin varjostus */
+}
+
+.consultant-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.consultant-card p {
+  margin: 0.5rem 0;
+}
+/* Konsultin ikoni */
+.consultant-icon {
+margin-right: 0.5rem; /* Väli ikonin ja nimen välillä */
+color: #646cff; /* Sama väri kuin painikkeessa */
+}
+
+
+
+
+/* Laajennetut tiedot kortissa */
+.expanded-details {
+
+background-color: inherit; /* Sama taustaväri kuin kortilla */
+padding: 0rem;
+font-size: 1rem; 
+color: #333; 
+
+}
+
+.expanded-details p {
+margin: 0.5rem 0; 
+font-size: 1.0rem; 
+line-height: 1.5; 
+}
+
+/* Näytä lisää -painike */
+.view-button {
+background-color: #646cff;
+color: white;
+border: none;
+border-radius: 4px;
+padding: 0.5rem 1rem;
+cursor: pointer;
+margin-top: 0.8rem;
+margin-bottom: 0.8rem;
+}
+
+.view-button:hover {
+background-color: #535bf2;
+}
+
+/* Ei konsultteja -viesti */
+.no-consultants-message {
+text-align: center;
+font-size: 1rem;
+color: #555;
+margin-top: 2rem;
+}
+
+/* Responsiivinen laajennettujen tietojen tyyli */
+@media (max-width: 768px) {
+  .expanded-details {
+    padding: 0.8rem;
+    font-size: 0.9rem; 
   }
-  /* Responsiivinen mobiilinäkymä */
-  @media (max-width: 1024px) {
-    .consultants-grid {
-      grid-template-columns: repeat(2, 1fr); /* Kaksi korttia vierekkäin tabletilla */
-    }
+}
+/* Responsiivinen mobiilinäkymä */
+@media (max-width: 1024px) {
+  .consultants-grid {
+    grid-template-columns: repeat(2, 1fr); /* Kaksi korttia vierekkäin tabletilla */
+  }
+}
+
+@media (max-width: 768px) {
+  .consultants-grid {
+    grid-template-columns: 1fr; /* Mobiilissa yksi kortti per rivi */
   }
   
-  @media (max-width: 768px) {
-    .consultants-grid {
-      grid-template-columns: 1fr; /* Mobiilissa yksi kortti per rivi */
-    }
-    
-    .controls {
-      flex-direction: column;
-      gap: 0.5rem; /* Väli elementtien välillä mobiilissa */
-    }
-  
-    .consultant-card {
-      padding: 1rem;
-    }
-    
-    .consultant-details {
-      padding: 0.5rem;
-      font-size: 0.8rem; /* Pienennetään fonttia mobiilissa */
-    }
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem; /* Väli elementtien välillä mobiilissa */
+  }
+
+  .consultant-card {
+    padding: 1rem;
   }
   
- 
-  
+  .consultant-details {
+    padding: 0.5rem;
+    font-size: 0.8rem; /* Pienennetään fonttia mobiilissa */
+  }
+}
+
+

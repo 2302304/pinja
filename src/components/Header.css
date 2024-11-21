@@ -1,11 +1,58 @@
-/* Headerin perusasetukset */
 .header {
-    width: 100vw;
-    background-color: #f4f4f4;
-    color: #333; 
-    padding: 0.5rem; 
-    text-align: left;
-    font-size: 1.0rem; 
-    font-weight: bold;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
-}
+    display: flex;
+    justify-content: flex-start; /* Kohdistaa kaiken vasemmalle */
+    align-items: center;
+    padding: 1rem 2rem; /* Tilaa ylhäällä ja sivuilla */
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Pieni varjostus */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem; /* Tilaa logon ja linkkien välillä */
+  }
+  
+  .pinja-logo {
+    height: 40px; /* Logon korkeus */
+    width: auto; /* Säilyttää mittasuhteet */
+    margin-right: 1rem; /* Väli logon ja tekstin välillä */
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem; /* Väli linkkien välillä */
+    align-items: center; /* Keskittää linkit pystysuunnassa */
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Väli ikonin ja tekstin välillä */
+    color: #333; /* Perusväri */
+    text-decoration: none; /* Poistaa alleviivauksen */
+    font-size: 1rem; /* Fonttikoko */
+    transition: color 0.3s ease; /* Sileä hover-animaatio */
+  }
+  
+  .nav-link:hover {
+    color: #646cff; /* Hover-efekti */
+  }
+  
+  .nav-link svg {
+    font-size: 1.2rem; /* Ikonin koko */
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column; /* Linkit allekkain mobiilissa */
+      align-items: flex-start;
+    }
+  
+    .nav-links {
+      flex-wrap: wrap; /* Linkit usealle riville pienillä näytöillä */
+      gap: 1rem; /* Vähemmän tilaa linkkien välillä mobiilissa */
+    }
+  }
+  
