@@ -7,7 +7,6 @@ import Consultants from './pages/Consultants';
 import Dashboard from './pages/Dashboard';
 import './App.css';
 
-
 const App = () => {
   return (
     <Router>
