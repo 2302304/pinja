@@ -65,11 +65,8 @@ const Consultants = () => {
           {consultantsToDisplay.map((consultant) => (
             <div key={consultant.id} className="consultant-card">
               <h3>
-                <FontAwesomeIcon icon={faUserTie} className="consultant-icon" /> {consultant.name}
+              <FontAwesomeIcon icon={faUserTie} className="consultant-icon" /> {consultant.name}
               </h3>
-              <p><strong>Osaaminen:</strong> {consultant.expertise}</p>
-              <p><strong>Teknologia:</strong> {consultant.technology}</p>
-              <p><strong>Kokemus:</strong> {consultant.year}</p>
               <button
                 className="view-button"
                 onClick={() => handleViewMore(consultant.id)}
@@ -78,6 +75,9 @@ const Consultants = () => {
               </button>
               {expandedConsultant === consultant.id && (
                 <div className="expanded-details">
+                  <p><strong>Osaaminen:</strong> {consultant.expertise}</p>
+                  <p><strong>Teknologia:</strong> {consultant.technology}</p>
+                  <p><strong>Kokemus:</strong> {consultant.year}</p>
                   <p><strong>Koulutusaste:</strong> {consultant.education.degree}</p>
                   <p><strong>Koulutusohjelma:</strong> {consultant.education.program}</p>
                   <p><strong>Valmistumisvuosi:</strong> {consultant.education.graduationYear}</p>

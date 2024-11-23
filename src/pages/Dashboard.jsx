@@ -73,7 +73,7 @@ const Dashboard = () => {
             <strong>Työkokemus:</strong> {selectedConsultant.workExperience}
           </p>
           <button onClick={handlePrintSelected} className="print-button">
-            Tulosta valitun konsultin tiedot
+            Tulosta PDF
           </button>
         </div>
       )}
@@ -82,7 +82,7 @@ const Dashboard = () => {
       <div className="dashboard-section">
         <h2>Raportointi</h2>
         <button onClick={handlePrintAll} className="print-button">
-          Tulosta kaikki konsultit PDF
+          Tulosta Tiimi PDF
         </button>
       </div>
     </div>
