@@ -1,48 +1,38 @@
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { Page, Text, View, Document, PDFDownloadLink } from '@react-pdf/renderer';
 
-const styles = StyleSheet.create({
-  page: {
-    padding: 30,
-    fontFamily: 'Helvetica',
-    fontSize: 12,
-    lineHeight: 1.5,
-  },
-  section: {
-    marginBottom: 15,
-  },
-  title: {
-    fontSize: 16,
-    marginBottom: 10,
-    fontWeight: 'bold',
-  },
-  text: {
-    marginBottom: 5,
-  },
-});
+const PDFConsultant = ({ consultant }) => {
+  if (!consultant) return null; // Jos konsulttia ei ole valittu, ei renderöidä mitään
 
-const PDFConsultant = ({ consultant }) => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.section}>
-        <Text style={styles.title}>Konsultin Tiedot</Text>
-        <Text style={styles.text}>Nimi: {consultant.name}</Text>
-        <Text style={styles.text}>Osaaminen: {consultant.expertise}</Text>
-        <Text style={styles.text}>Teknologia: {consultant.technology}</Text>
-        <Text style={styles.text}>Kokemus: {consultant.year}</Text>
-        <Text style={styles.text}>
-          Koulutus: {consultant.education.degree}, {consultant.education.program} ({consultant.education.graduationYear})
+  const ConsultantDocument = () => (
+    <Document>
+      <Page size="A4" style={{ padding: 20 }}>
+        <Text style={{ fontSize: 20, marginBottom: 20 }}>Konsultin tiedot</Text>
+        <Text>Nimi: {consultant.name}</Text>
+        <Text>Osaaminen: {consultant.expertise}</Text>
+        <Text>Teknologia: {consultant.technology}</Text>
+        <Text>Kokemus: {consultant.year}</Text>
+        <Text>
+          Koulutus: {consultant.education.degree}, {consultant.education.program} (
+          {consultant.education.graduationYear})
         </Text>
-        <Text style={styles.text}>
-          Sertifikaatit: {consultant.certifications.join(', ')}
-        </Text>
-        <Text style={styles.text}>
-          Projektit: {consultant.projects.join(', ')}
-        </Text>
-        <Text style={styles.text}>Työkokemus: {consultant.workExperience}</Text>
-      </View>
-    </Page>
-  </Document>
-);
+        <Text>Sertifikaatit: {consultant.certifications.join(', ')}</Text>
+        <Text>Projektit: {consultant.projects.join(', ')}</Text>
+        <Text>Työkokemus: {consultant.workExperience}</Text>
+      </Page>
+    </Document>
+  );
+
+  return (
+    <PDFDownloadLink
+      document={<ConsultantDocument />}
+      fileName={`${consultant.name}_tiedot.pdf`}
+      className="download-button"
+    >
+      {({ loading }) => (loading ? 'Ladataan PDF...' : 'Lataa PDF')}
+    </PDFDownloadLink>
+  );
+};
+
 
 export default PDFConsultant;
