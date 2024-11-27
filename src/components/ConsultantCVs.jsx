@@ -1,5 +1,5 @@
 import React from 'react';
-import { Document, Page, Text, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, Text, Image, StyleSheet } from '@react-pdf/renderer';
 import consultants from '../data/consultantsData'; // Tuodaan konsulttien tiedot
 
 // Tyylit ilman erillistä css 
@@ -14,9 +14,16 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 10,
   },
   bodyText: {
     fontSize: 12,
+    marginBottom: 5,
+  },
+  logo: {
+    width: 100, // Voit säätää logon kokoa
+    height: 'auto',
+    marginBottom: 15,
   },
 });
 
@@ -25,14 +32,22 @@ const ConsultantCVs = () => {
     <Document>
       {consultants.map((consultant) => (
         <Page key={consultant.id} style={styles.page}>
+          {/* Logo, joka on public-kansiossa */}
+          <Image style={styles.logo} src="/image.png" />
+          
+          {/* Konsultin nimi otsikkona */}
           <Text style={styles.header}>{consultant.name}</Text>
-          <Text style={styles.bodyText}><strong>Osaaminen:</strong> {consultant.expertise}</Text>
-          <Text style={styles.bodyText}><strong>Teknologia:</strong> {consultant.technology}</Text>
-          <Text style={styles.bodyText}><strong>Kokemus:</strong> {consultant.year}</Text>
-          <Text style={styles.bodyText}><strong>Koulutus:</strong> {consultant.education.degree}, {consultant.education.program} ({consultant.education.graduationYear})</Text>
-          <Text style={styles.bodyText}><strong>Sertifikaatit:</strong> {consultant.certifications.join(', ')}</Text>
-          <Text style={styles.bodyText}><strong>Projektit:</strong> {consultant.projects.join(', ')}</Text>
-          <Text style={styles.bodyText}><strong>Työkokemus:</strong> {consultant.workExperience}</Text>
+
+          {/* Konsultin tiedot halutussa muodossa */}
+          <Text style={styles.bodyText}>Osaaminen: {consultant.expertise}</Text>
+          <Text style={styles.bodyText}>Teknologia: {consultant.technology}</Text>
+          <Text style={styles.bodyText}>Kokemus: {consultant.year}</Text>
+          <Text style={styles.bodyText}>
+            Koulutus: {consultant.education.degree}, {consultant.education.program} ({consultant.education.graduationYear})
+          </Text>
+          <Text style={styles.bodyText}>Sertifikaatit: {consultant.certifications.join(', ')}</Text>
+          <Text style={styles.bodyText}>Projektit: {consultant.projects.join(', ')}</Text>
+          <Text style={styles.bodyText}>Työkokemus: {consultant.workExperience}</Text>
         </Page>
       ))}
     </Document>
