@@ -10,7 +10,7 @@ const Home = () => {
       </header>
       <main className="home-content">
         <section className="intro">
-          <h3>Tervetuloa Pinjan konsulttien hallintaohjelmaan!</h3>
+          <h3>Tervetuloa Pinjan konsulttienhallintaohjelmaan!</h3>
           <p>
             Pinjan konsulttienhallinta auttaa hallinnoimaan asiantuntijoiden
             osaamista ja kokemusta tehokkaasti yhdessä paikassa. Sovellus tarjoaa
