@@ -12,15 +12,15 @@ const Home = () => {
         <section className="intro">
           <h3>Tervetuloa Pinjan konsulttien hallintaohjelmaan!</h3>
           <p>
-            Pinjan Konsulttien Hallinta auttaa yrityksiä hallinnoimaan asiantuntijoiden
+            Pinjan konsulttienhallinta auttaa hallinnoimaan asiantuntijoiden
             osaamista ja kokemusta tehokkaasti yhdessä paikassa. Sovellus tarjoaa
             helppokäyttöisen alustan konsulttidatan ylläpitoon, suodattamiseen ja raporttien
-            luomiseen.
+            luomiseen sekä tulostamiseen. 
           </p>
         </section>
         <section className="features">
           <div className="feature">
-            <h4>Konsulttien hallinta</h4>
+            <h4>Konsulttienhallinta</h4>
             <p>Tuo ja hallitse kaikkien asiantuntijoiden tietoja helposti.</p>
           </div>
           <div className="feature">
@@ -34,8 +34,8 @@ const Home = () => {
         </section>
       </main>
       <footer className="home-footer">
-        <p>© 2024 Pinja. Kaikki oikeudet pidätetään.</p>
-        <p><a href="https://pinja.com">Tutustu meihin</a></p>
+        <p>© 2024 Jani & Niko. Kaikki oikeudet pidätetään.</p>
+        <p><a href="https://pinja.com">Tutustu yritykseen</a></p>
       </footer>
     </div>
   );
