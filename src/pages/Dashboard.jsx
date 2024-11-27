@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import consultants from '../data/consultantsData';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import ConsultantCV from '../components/ConsultantCV'; // Tuodaan yksittäisen konsultin CV
+import ConsultantCVs from '../components/ConsultantCVs'; // Tuodaan kaikkien konsulttien CV
 
 const Dashboard = () => {
   const [selectedConsultant, setSelectedConsultant] = useState(null);
@@ -12,14 +15,6 @@ const Dashboard = () => {
       const consultant = consultants.find((consultant) => consultant.id === parseInt(id));
       setSelectedConsultant(consultant);
     }
-  };
-
-  const handlePrintSelected = () => {
-    console.log(`Tulostetaan konsultin tiedot: ${selectedConsultant.name}`);
-  };
-
-  const handlePrintAll = () => {
-    console.log('Tulostetaan kaikkien konsulttien tiedot PDF-tiedostoon.');
   };
 
   return (
@@ -55,16 +50,28 @@ const Dashboard = () => {
           <p><strong>Sertifikaatit:</strong> {selectedConsultant.certifications.join(', ')}</p>
           <p><strong>Projektit:</strong> {selectedConsultant.projects.join(', ')}</p>
           <p><strong>Työkokemus:</strong> {selectedConsultant.workExperience}</p>
-          <button onClick={handlePrintSelected} className="print-button">Lataa CV PDF:nä</button>
+
+          {/* Latauspainike yksittäiselle konsultille */}
+          <PDFDownloadLink
+            document={<ConsultantCV consultant={selectedConsultant} />}
+            fileName={`${selectedConsultant.name}-CV.pdf`}
+            className="print-button"
+          >
+            {({ loading }) => (loading ? "Ladataan..." : "Lataa CV PDF:nä")}
+          </PDFDownloadLink>
         </div>
       )}
 
-      {/* Kaikkien konsulttien tulostus */}
+      {/* Kaikkien konsulttien lataus */}
       <div className="dashboard-section">
         <h2>Raportointi</h2>
-        <button onClick={handlePrintAll} className="print-button">
-          Lataa konsulttien CV:t PDF:nä
-        </button>
+        <PDFDownloadLink
+          document={<ConsultantCVs />}
+          fileName="kaikkien-konsulttien-CV.pdf"
+          className="print-button"
+        >
+          {({ loading }) => (loading ? "Ladataan..." : "Lataa kaikkien konsulttien CV:t PDF:nä")}
+        </PDFDownloadLink>
       </div>
     </div>
   );
