@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
-import consultants from '../data/consultantsData';
+import consultants from '../components/consultantsData';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ConsultantCV from '../components/ConsultantCV'; // Tuodaan yksittäisen konsultin CV
 import ConsultantCVs from '../components/ConsultantCVs'; // Tuodaan kaikkien konsulttien CV

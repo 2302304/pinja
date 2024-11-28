@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import './Consultants.css';
-import consultants from '../data/consultantsData';
+import consultantsData from '../components/consultantsData'; // Konsulttien alkuperäinen data
+import AddConsultant from '../components/Addconsultant';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserTie } from '@fortawesome/free-solid-svg-icons'; // Sopiva ikoni
+import { faUserTie } from '@fortawesome/free-solid-svg-icons'; // Ikoni
 
 const Consultants = () => {
+  const [consultants, setConsultants] = useState(consultantsData); // Alkuperäinen konsulttilista
   const [search, setSearch] = useState('');
   const [technologyFilter, setTechnologyFilter] = useState('Kaikki');
   const [showAll, setShowAll] = useState(false);
   const [expandedConsultant, setExpandedConsultant] = useState(null);
+  const [isAddConsultantOpen, setIsAddConsultantOpen] = useState(false); // Lisää konsultti -modalin tila
+
+  // Lisätään uusi konsultti
+  const addConsultant = (newConsultant) => {
+    setConsultants([...consultants, newConsultant]); // Lisää uusi konsultti listalle
+  };
 
   // Suodatus hakukentän ja teknologiafiltterin perusteella
   const filteredConsultants = consultants.filter((consultant) => {
@@ -61,8 +69,22 @@ const Consultants = () => {
           <option value="Figma">Figma</option>
           <option value="AWS">AWS</option>
         </select>
-        <button className="add-button">Lisää konsultti</button>
+        <button
+          className="add-button"
+          onClick={() => setIsAddConsultantOpen(true)} // Avaa Lisää konsultti -modal
+        >
+          Lisää konsultti
+        </button>
       </div>
+
+      {/* Lisää konsultti -popup-ikkuna */}
+      {isAddConsultantOpen && (
+        <AddConsultant
+          addConsultant={addConsultant} // Välitetään addConsultant-funktio
+          closeModal={() => setIsAddConsultantOpen(false)} // Sulkee popupin
+        />
+      )}
+
       {consultantsToDisplay.length > 0 ? (
         <div className="consultants-grid">
           {consultantsToDisplay.map((consultant) => (
@@ -76,7 +98,6 @@ const Consultants = () => {
                 <FontAwesomeIcon icon={faUserTie} className="consultant-icon" />{' '}
                 {consultant.name}
               </h3>
-              {/* Näyttää aina nämä kolme tietoa */}
               <p>
                 <strong>Osaaminen:</strong> {consultant.expertise}
               </p>
@@ -87,7 +108,7 @@ const Consultants = () => {
                 <strong>Kokemus:</strong> {consultant.year}
               </p>
 
-              {/* Näyttää loput tiedot lisätietojen alla */}
+              {/* Näyttää lisätiedot, jos konsulttia klikataan */}
               {expandedConsultant === consultant.id && (
                 <div className="expanded-details">
                   <p>

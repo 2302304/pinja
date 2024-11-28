@@ -1,6 +1,6 @@
 import React from 'react';
 import { Document, Page, Text, Image, StyleSheet } from '@react-pdf/renderer';
-import consultants from '../data/consultantsData'; // Tuodaan konsulttien tiedot
+import consultants from './consultantsData'; // Tuodaan konsulttien tiedot
 
 // Tyylit ilman erillistä css 
 const styles = StyleSheet.create({
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   logo: {
-    width: 100, // Voit säätää logon kokoa
+    width: 100, 
     height: 'auto',
     marginBottom: 15,
   },
@@ -32,13 +32,13 @@ const ConsultantCVs = () => {
     <Document>
       {consultants.map((consultant) => (
         <Page key={consultant.id} style={styles.page}>
-          {/* Logo, joka on public-kansiossa */}
+          
           <Image style={styles.logo} src="/image.png" />
           
-          {/* Konsultin nimi otsikkona */}
+          
           <Text style={styles.header}>{consultant.name}</Text>
 
-          {/* Konsultin tiedot halutussa muodossa */}
+          
           <Text style={styles.bodyText}>Osaaminen: {consultant.expertise}</Text>
           <Text style={styles.bodyText}>Teknologia: {consultant.technology}</Text>
           <Text style={styles.bodyText}>Kokemus: {consultant.year}</Text>
