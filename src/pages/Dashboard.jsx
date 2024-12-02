@@ -53,12 +53,13 @@ const Dashboard = () => {
 
           {/* Latauspainike yksittäiselle konsultille */}
           <PDFDownloadLink
-            document={<ConsultantCV consultant={selectedConsultant} />}
-            fileName={`${selectedConsultant.name}-CV.pdf`}
-            className="print-button"
+          document={<ConsultantCV consultant={selectedConsultant} />}
+          fileName={`${selectedConsultant.name}-CV.pdf`}
+          className="print-button"
           >
             {({ loading }) => (loading ? "Ladataan..." : "Lataa CV")}
           </PDFDownloadLink>
+
         </div>
       )}
 
