@@ -57,7 +57,7 @@ const Dashboard = () => {
             fileName={`${selectedConsultant.name}-CV.pdf`}
             className="print-button"
           >
-            {({ loading }) => (loading ? "Ladataan..." : "Lataa CV PDF:nä")}
+            {({ loading }) => (loading ? "Ladataan..." : "Lataa CV")}
           </PDFDownloadLink>
         </div>
       )}
@@ -67,10 +67,10 @@ const Dashboard = () => {
         <h2>Raportointi</h2>
         <PDFDownloadLink
           document={<ConsultantCVs />}
-          fileName="kaikkien-konsulttien-CV.pdf"
+          fileName="Tiimi-CV.pdf"
           className="print-button"
         >
-          {({ loading }) => (loading ? "Ladataan..." : "Lataa kaikkien konsulttien CV:t PDF:nä")}
+          {({ loading }) => (loading ? "Ladataan..." : "Lataa tiimi CV")}
         </PDFDownloadLink>
       </div>
     </div>
