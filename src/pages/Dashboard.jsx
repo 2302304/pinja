@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
-import consultants from '../components/consultantsData';
+import consultants from '../components/consultantsData'; // Konsulttidata tuodaan vain kerran tänne
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import ConsultantCV from '../components/ConsultantCV'; // Tuodaan yksittäisen konsultin CV
-import ConsultantCVs from '../components/ConsultantCVs'; // Tuodaan kaikkien konsulttien CV
+import ConsultantCV from '../components/ConsultantCV'; // Yksittäisen konsultin CV
+import ConsultantCVs from '../components/ConsultantCVs'; // Tiimi-CV
 
 const Dashboard = () => {
   const [selectedConsultant, setSelectedConsultant] = useState(null);
@@ -53,13 +53,12 @@ const Dashboard = () => {
 
           {/* Latauspainike yksittäiselle konsultille */}
           <PDFDownloadLink
-          document={<ConsultantCV consultant={selectedConsultant} />}
-          fileName={`${selectedConsultant.name}-CV.pdf`}
-          className="print-button"
+            document={<ConsultantCV consultant={selectedConsultant} />}
+            fileName={`${selectedConsultant.name}-CV.pdf`}
+            className="print-button"
           >
             {({ loading }) => (loading ? "Ladataan..." : "Lataa CV")}
           </PDFDownloadLink>
-
         </div>
       )}
 
@@ -67,12 +66,13 @@ const Dashboard = () => {
       <div className="dashboard-section">
         <h2>Raportointi</h2>
         <PDFDownloadLink
-          document={<ConsultantCVs />}
-          fileName="Tiimi-CV.pdf"
-          className="print-button"
+        document={<ConsultantCVs consultants={consultants} />} 
+        fileName="Tiimi-CV.pdf"
+        className="print-button"
         >
-          {({ loading }) => (loading ? "Ladataan..." : "Lataa tiimi CV")}
+        {({ loading }) => (loading ? "Ladataan..." : "Lataa tiimi CV")}
         </PDFDownloadLink>
+
       </div>
     </div>
   );
