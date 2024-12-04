@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddConsultant.css"; // Lisää tyylit
+import "./Addconsultant.css"; // Lisää tyylit
 
 const AddConsultant = ({ addConsultant, closeModal }) => {
   const [newConsultant, setNewConsultant] = useState({
